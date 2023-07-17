@@ -284,7 +284,7 @@ drawProgressBar 35 "$total"
 sleep 0.1
 
 unset SURVEY_TARGET
-output=$(curl -x http://127.0.0.1:8080 https://google.com/ -v -m 55 2>&1)
+output=$(curl -s -x http://127.0.0.1:8080 https://google.com/ -v -m 55 2>&1)
 SURVEY_TARGETLABEL="CURL TEST"
 SURVEY_TARGETFILE=curl.txt
 SURVEY_TARGET=$SURVEY_OUTDIR/files/$SURVEY_TARGETFILE
@@ -811,6 +811,7 @@ rm -rf $SURVEY_OUTDIR
 
 SURVEY_FILESIZE=`ls -s ${SURVEY_FINAL_OUTPUT}|awk '{print $1}'`
 echo "################################"
+echo
 echo -e "Thank you for running this script.  There is one final step."
 echo
 echo -e "Please send the file ${SURVEY_FINAL_OUTPUT} to Surfly Support at support@surfly.com."
