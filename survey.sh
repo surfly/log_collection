@@ -15,10 +15,11 @@ total=100
 
 clear
 echo -e "============================"
-echo "Surfly Support Suvery Script"
-echo -e "Please contact at support@surfly.com for issues"
-echo -e ""
-echo "Survey logs collection started......"
+echo "Surfly On-premise Log Collection Script"
+echo
+echo "Please inform Surfly Support Team (support@surfly.com) if you encounter an issue while running this script."
+echo
+echo "Logs collection started......"
 
 CARRIAGE=`echo "\0015"`
 SURVEY_MESSAGE="Starting..."; 
@@ -812,6 +813,6 @@ rm -rf $SURVEY_OUTDIR
 SURVEY_FILESIZE=`ls -s ${SURVEY_FINAL_OUTPUT}|awk '{print $1}'`
 echo "################################"
 echo
-echo -e "Thank you for running this script.  There is one final step."
+echo -e "Thank you for running this script.  Required logs have been collected into file ${SURVEY_FINAL_OUTPUT}"
 echo
-echo -e "Please send the file ${SURVEY_FINAL_OUTPUT} to Surfly Support at support@surfly.com."
+echo -e "Please get this file from your server and share with the Surfly Support team"
