@@ -14,8 +14,8 @@ drawProgressBar() {
 total=100
 
 clear
-echo -e "============================"
-echo "Surfly On-premise Log Collection Script"
+echo -e "===================================="
+echo "Surfly On-premise Log Collection Script."
 echo
 echo "Please inform Surfly Support Team (support@surfly.com) if you encounter an issue while running this script."
 echo
