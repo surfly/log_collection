@@ -256,6 +256,16 @@ if [ -s $SURVEY_SOURCE ]; then
    
 fi
 
+SURVEY_SOURCE="/opt/trafficserver/logs/error*"
+if [ -s $SURVEY_SOURCE ]; then
+   SURVEY_TARGETLABEL="ATS ERROR Logs"
+   SURVEY_TARGETFILE=ats_error.txt
+   SURVEY_TARGET=$SURVEY_OUTDIR/files/$SURVEY_TARGETFILE
+   cp $SURVEY_SOURCE $SURVEY_TARGET
+   SURVEY_NAV_PROFILE=$SURVEY_NAV_PROFILE+"<li><a href=../files/$SURVEY_TARGETFILE target=main>$SURVEY_TARGETLABEL</a>"
+   
+fi
+
 SURVEY_SOURCE="/opt/trafficserver/logs/manager.log"
 if [ -s $SURVEY_SOURCE ]; then
    SURVEY_TARGETLABEL="ATS Manager Logs"
