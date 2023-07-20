@@ -514,17 +514,6 @@ SURVEY_NAV_PRESOURCE_ENV="<li><a href=../files/$SURVEY_TARGETFILE target=main>$S
 drawProgressBar 95 "$total"
 sleep 0.1
 
-
-# check for rights on the /tmp folder
-tmptest=`mount|grep /tmp|grep noexec | wc -l`
-tmptestout=`mount|grep /tmp|grep noexec`
-if [ $tmptest -eq 1 ]; then
-   echo "<li><font color=#red>FAIL: /tmp is mounted with noexec rights</font>" >> $SURVEY_OUTFILE
-   echo "   --- $tmptestout <br>" >> $SURVEY_OUTFILE
-else
-   echo "<li><font color=#green>PASS: /tmp is not mounted with noexec rights</font>" >> $SURVEY_OUTFILE
-fi
-
 ###################################################
 ###### Final steps, create the html elements ######
 echo "<html>" > $SURVEY_OUTDIR/index.html
