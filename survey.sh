@@ -716,8 +716,6 @@ fi
 
 echo "<tr><td>Running Processes</td><td>This user has "$SURVEY_DETAILS_RUNNING_PROCESSES_COUNT" processes currently running out of (ulimit -u) ( "$SURVEY_MAX_PROC" ) allowed</td></tr>" >> $SURVEY_OUTDIR/content/main.html
 
-echo "<tr><td valign=top>Cluster Files</td><td>This user has "$SURVEY_CLUSTERFILECOUNT" clusters defined for multiple product versions.  There should only be 1 per user.  Please check the .businessobjects folder in the users home directory.</td></tr>" >> $SURVEY_OUTDIR/content/main.html
-
 echo "</table>" >> $SURVEY_OUTDIR/content/main.html
 echo "</body>" >> $SURVEY_OUTDIR/content/main.html
 echo "</html>" >> $SURVEY_OUTDIR/content/main.html
