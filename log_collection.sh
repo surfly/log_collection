@@ -175,7 +175,7 @@ sleep 0.1
 ### Post collection calculations
 ### End Post collection calculations
 
-SURVEY_OUTDIR=`date '+survey-%m%d%y_%H%M%S'`"-"$HOSTNAME"-"$UNAME
+SURVEY_OUTDIR=`date '+log_collection-%m%d%y_%H%M%S'`"-"$HOSTNAME"-"$UNAME
 
 SURVEY_STYLE="<style>table { font-size: 14px; } </style>"
 
