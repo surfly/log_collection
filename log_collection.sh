@@ -100,14 +100,12 @@ case $UNAME in
 
                 SURVEY_DETAILS_USERNAME=`id -un`
                 SURVEY_DETAILS_OPENFILES=`/usr/sbin/lsof -u $SURVEY_DETAILS_USERNAME 2>/dev/null | wc -l`
+                
                
                drawProgressBar 5 "$total"
 
                 SURVEY_MESSAGE="Counting the number of open files by this user"; 
                 SURVEY_DETAILS_OPENFILES_COUNT=`lsof -u $SURVEY_DETAILS_USERNAME 2>/dev/null|wc -l`
-
-                SURVEY_MESSAGE="Counting the number of running processes for this user"; 
-                SURVEY_DETAILS_RUNNING_PROCESSES_COUNT=`ps | wc -l`
 
                 SURVEY_MESSAGE="Collecting the list of running processes for this user"; 
                 SURVEY_DETAILS_RUNNING_PROCESSES=`ps -ef | grep $USER | awk 'sub("$", "\r")'`
@@ -164,6 +162,12 @@ case $UNAME in
                 SURVEY_MESSAGE="Collecting the list of running processes for this user"; 
                 SURVEY_DETAILS_RUNNING_PROCESSES=`ps -u $SURVEY_DETAILS_USERNAME -f | sed s/$/${CARRIAGE}/`
                 #SURVEY_DETAILS_RUNNING_PROCESSES=`ps -u $SURVEY_DETAILS_USERNAME -f |awk 'sub("$", "\r")'`
+
+                SURVEY_MESSAGE="Checking ansible version"; 
+                SURVEY_DETAILS_ANSIBLE_VERSION_DETAILS=`ansible --version`
+
+                SURVEY_MESSAGE="Checking ansible galaxy version"; 
+                SURVEY_DETAILS_ANSIBLE_GALAXY_VERSION_DETAILS=`ansible-galaxy --version`
 
                 ;;
 esac
@@ -540,6 +544,8 @@ echo "<tr><td width=150>Hostname:</td><td>"`hostname`"</td></tr>" >> $SURVEY_OUT
 echo "<tr><td >System Uptime</td><td>$SURVEY_SYSTEM_UPTIME</td></tr>" >> $SURVEY_OUTDIR/content/main.html
 echo "<tr><td >Operating System</td><td>$UNAME</td></tr>" >> $SURVEY_OUTDIR/content/main.html
 echo "<tr><td>CPU Details</td><td>$SURVEY_CPU_COUNT x $SURVEY_CPU_INFO</td></tr>" >> $SURVEY_OUTDIR/content/main.html
+echo "<tr><td >Ansible Details</td><td>$SURVEY_DETAILS_ANSIBLE_VERSION_DETAILS</td></tr>" >> $SURVEY_OUTDIR/content/main.html
+echo "<tr><td >Ansible Galaxy Details</td><td>$SURVEY_DETAILS_ANSIBLE_GALAXY_VERSION_DETAILS</td></tr>" >> $SURVEY_OUTDIR/content/main.html
 echo "<tr><td>Installed RAM</td><td>$SURVEY_MEMORY_INSTALLED</td></tr>" >> $SURVEY_OUTDIR/content/main.html
 echo "<tr><td>Locale</td><td>$SURVEY_MAIN_LOCALE</td></tr>" >> $SURVEY_OUTDIR/content/main.html
 if [ $OS = 'linux' ]; then 
